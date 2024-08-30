@@ -4,14 +4,18 @@ import './App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { format } from 'date-fns';
+
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [uvInfo, setUvInfo] = useState(null);
+  const [temperature, setTemperature] = useState(null);
+  const [weatherCondition, setWeatherCondition] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   // const [country, setCountry] = useState('');
   const [error, setError] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -23,6 +27,14 @@ function App() {
       alert('Invalid zip code format. Please enter a 5-digit ZIP code.');
       return;
     }
+
+    // loading when starting request
+    setLoading(true);
+    setError(null);
+    setUvInfo(null);
+    setTemperature(null);
+    setWeatherCondition('');
+    setAlertMessage('');
 
     try {
       // get data from zipcode in the US
@@ -67,15 +79,31 @@ function App() {
       // setCountry(country);
 
       if (uvData.result.uv > 2) {
-        setAlertMessage('Apply sunscreen!');
+        setAlertMessage('Apply sunscreen to protect your skin!');
       } else if (uvData.result.uv === 0) {
         setAlertMessage('No harsh sun rays at the moment!');
       } else {
         setAlertMessage('');
       }
+
+      const nwsUrl = `https://api.weather.gov/points/${lat},${lng}`;
+      const nwsResponse = await axios.get(nwsUrl);
+      const forecastUrl = nwsResponse.data.properties.forecast;
+      const forecastResponse = await axios.get(forecastUrl);
+      const forecastPeriods = forecastResponse.data.properties.periods;
+      const currentPeriod = forecastPeriods[0];
+      const temperatureData = currentPeriod.temperature;
+      const weatherDescription = currentPeriod.shortForecast;
+      console.log('NWS API Temperature Response:', forecastResponse.data);
+
+      setTemperature(temperatureData);
+      setWeatherCondition(weatherDescription);
+
     } catch (error) {
       console.error('Error fetching UV info:', error);
       setError('Error fetching UV info');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -96,16 +124,18 @@ function App() {
         />
         <button onClick={handleSearch} className="search-button">Search</button>
       </div>
+      {loading && <div className="loading-message">Loading...</div>}
       {uvInfo && (
         <div className="uv-info">
-        <p>My Location</p>
         <p className="location">📍 {city}, {state}</p>
+        <p className="temperature">{temperature}°F</p>
+        <p className="weather">{weatherCondition}</p>
         <p className="uv-index">UV Index: {uvInfo.uv}</p>
+        {alertMessage && <div className="alert">{alertMessage}</div>}
         <p className="uv-time">{uvInfo.uv_time}</p>
       </div>
       )}
-      {error && <div className="error">{error}</div>}
-      {alertMessage && <div className="alert">{alertMessage}</div>} {/* Alert box */}
+      {error && <div className="error">{error}</div>} 
     </div>
   );
 }

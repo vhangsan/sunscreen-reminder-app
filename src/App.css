@@ -105,7 +105,15 @@ h1 {
 }
 
 .uv-info .location {
-  font-size: 1.0rem;
+  font-size: 1.5rem;
+}
+
+.uv-info .temperature {
+  font-size: 2.2rem;
+}
+
+.uv-info .weather {
+  font-size: 1.1rem;
 }
 
 .uv-info .uv-index {
@@ -124,10 +132,20 @@ h1 {
 }
 
 .alert {
-  margin-top: 25px;
+  margin-top: 10px;
   padding: 10px;
   background-color: #fcf5b4;
   color: #000;
   border: 1px solid #f3d06a;
   border-radius: 5px;
+  box-sizing: border-box;
+  text-align: center;
+  width: 100%;
+}
+
+.loading-message {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
 }
