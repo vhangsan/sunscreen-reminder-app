@@ -103,6 +103,12 @@ function App() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="app-container">
       <div className="header">
@@ -116,6 +122,7 @@ function App() {
           placeholder="Enter zipcode..."
           value={searchTerm}
           onChange={handleChange}
+          onKeyDown={handleKeyDown}
           className="search-input"
         />
         <button onClick={handleSearch} className="search-button">Search</button>
