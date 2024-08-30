@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/vhangsan/sunscreen-reminder-app/static/css/main.053f7db5.css",
+    "main.js": "/vhangsan/sunscreen-reminder-app/static/js/main.5b5e2b59.js",
+    "static/js/453.dc851a24.chunk.js": "/vhangsan/sunscreen-reminder-app/static/js/453.dc851a24.chunk.js",
+    "index.html": "/vhangsan/sunscreen-reminder-app/index.html",
+    "main.053f7db5.css.map": "/vhangsan/sunscreen-reminder-app/static/css/main.053f7db5.css.map",
+    "main.5b5e2b59.js.map": "/vhangsan/sunscreen-reminder-app/static/js/main.5b5e2b59.js.map",
+    "453.dc851a24.chunk.js.map": "/vhangsan/sunscreen-reminder-app/static/js/453.dc851a24.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.053f7db5.css",
+    "static/js/main.5b5e2b59.js"
+  ]
+}
