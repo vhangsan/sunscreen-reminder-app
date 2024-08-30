@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/sunscreen-reminder-app/static/css/main.e8d090b8.css",
-    "main.js": "/sunscreen-reminder-app/static/js/main.84b6058a.js",
+    "main.js": "/sunscreen-reminder-app/static/js/main.7f1f9dec.js",
     "static/js/453.dc851a24.chunk.js": "/sunscreen-reminder-app/static/js/453.dc851a24.chunk.js",
     "static/media/sun_pic.png": "/sunscreen-reminder-app/static/media/sun_pic.7dacd75aab9d81019330.png",
     "index.html": "/sunscreen-reminder-app/index.html",
     "main.e8d090b8.css.map": "/sunscreen-reminder-app/static/css/main.e8d090b8.css.map",
-    "main.84b6058a.js.map": "/sunscreen-reminder-app/static/js/main.84b6058a.js.map",
+    "main.7f1f9dec.js.map": "/sunscreen-reminder-app/static/js/main.7f1f9dec.js.map",
     "453.dc851a24.chunk.js.map": "/sunscreen-reminder-app/static/js/453.dc851a24.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e8d090b8.css",
-    "static/js/main.84b6058a.js"
+    "static/js/main.7f1f9dec.js"
   ]
 }
