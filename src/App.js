@@ -1,4 +1,4 @@
-// import logo from './logo.svg';
+import sunPic from './sun_pic.png';
 import './App.css';
 
 import React, { useState } from 'react';
@@ -12,7 +12,6 @@ function App() {
   const [weatherCondition, setWeatherCondition] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
-  // const [country, setCountry] = useState('');
   const [error, setError] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -47,11 +46,9 @@ function App() {
     const { lat, lng } = data.results[0].geometry;
     const city = data.results[0].components.city || data.results[0].components.town;
     const state = data.results[0].components.state;
-    // const country = data.results[0].components.country;
-
+    
     console.log('City:', city);
     console.log('State:', state);
-    // console.log('Country:', country);
 
     const uvUrl = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${lng}&alt=100&dt=`;
       const uvResponse = await axios.get(uvUrl, {
@@ -76,7 +73,6 @@ function App() {
      
       setCity(city);
       setState(state);
-      // setCountry(country);
 
       if (uvData.result.uv > 2) {
         setAlertMessage('Apply sunscreen to protect your skin!');
@@ -110,7 +106,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="header">
-        <img src="/images/sun.png" alt="Sun Icon" className="header-image"/>
+        <img src={sunPic} alt="Sun Icon" className="header-image"/>
         <h1>Sun Safe Alert App</h1>
       </div>
       <p>Never forget to protect your skin! Check your location for the latest UV index.</p>
