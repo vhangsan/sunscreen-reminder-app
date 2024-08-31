@@ -64,10 +64,13 @@ function App() {
         alert('No UV data found for the provided coordinates.');
         return;
       }
+
+      const formattedUV = parseFloat(uvData.result.uv.toFixed(1));
       const formattedUvTime = format(new Date(uvData.result.uv_time), 'MMM d, yyyy h:mm a');
 
       setUvInfo({
         ...uvData.result,
+        uv: formattedUV,
         uv_time: formattedUvTime
       })
      
@@ -97,7 +100,7 @@ function App() {
 
     } catch (error) {
       console.error('Error fetching UV info:', error);
-      setError('Error fetching UV info');
+      setError(`Error fetching UV info: ${error.response?.data?.message || error.message}`);
     } finally {
       setLoading(false);
     }
@@ -114,7 +117,7 @@ function App() {
     <div className="app-container">
       <div className="header">
         <img src={sunPic} alt="Sun Icon" className="header-image"/>
-        <h1>Sun Safe Alert App</h1>
+        <h1>Sun Safe Alert</h1>
       </div>
       <p>Never forget to protect your skin! Check your location for the latest UV index.</p>
       <div className="search-box">
