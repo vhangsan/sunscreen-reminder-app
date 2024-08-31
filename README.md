@@ -1,68 +1,39 @@
-# Set Up for React App
+# Sun Safe Alert 🌞
+Sun Safe Alert is a React-based web application designed to helps users stay safe from harmful sunrays by providing real-time UV index data, weather conditions, and personalized alerts for sunscreen application. Enter a ZIP code to get the latest UV information.
+
+## Features
+* Real-time UV index: fetch current UV index based on user-inputted ZIP code
+* Weather information: see temperature and weather conditions in your area
+* Alerts: receive alerts when the UV is high to protect your skin
+* ZIP Code Search: enter 5-digit U.S. ZIP code to retrieve UV and weather data for that location
+
+## Set Up and Installation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Prerequisites
+* install Node.js and npm on local machine
+* API keys for [OpenCageData](https://opencagedata.com/api#quickstart) and [OpenUV](https://www.openuv.io/dashboard)
+
+### Starting the App
 
 To start project directory, run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This will run in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Building the App
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This will create a `build` directory that correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
+1. Enter ZIP Code: type in valid 5-digit U.S. ZIP code in search bar
+2. Retrieve Information: the app fetches and displays the geolocation, temperature, weather conditions, and current time & date for the entered location
+3. Alerts: if the UV index is above 2, an alert will prompt users to apply sunscreen
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Future Refinements
+* initialize the page with the user's current location based on the browser's geolocation
+* provide real-time alerts on mobile devices to remind users to apply sunscreen every 2 hours based on UV index information
