@@ -44,8 +44,11 @@ function App() {
       console.log('Geocode API Response:', data);
 
     const { lat, lng } = data.results[0].geometry;
-    const city = data.results[0].components.city || data.results[0].components.town;
+    const city = data.results[0].components.city || data.results[0].components.town || '';
     const state = data.results[0].components.state;
+
+    setCity(city);
+    setState(state);
     
     console.log('City:', city);
     console.log('State:', state);
@@ -79,7 +82,7 @@ function App() {
 
       if (uvData.result.uv > 2) {
         setAlertMessage('Apply sunscreen to protect your skin!');
-      } else if (uvData.result.uv === 0) {
+      } else if (uvData.result.uv < 2) {
         setAlertMessage('No harsh sun rays at the moment!');
       } else {
         setAlertMessage('');
@@ -134,7 +137,7 @@ function App() {
       {loading && <div className="loading-message">Loading...</div>}
       {uvInfo && (
         <div className="uv-info">
-        <p className="location">📍 {city}, {state}</p>
+        <p className="location">📍 {city ? `${city}, ${state}` : state}</p>
         <p className="temperature">{temperature}°F</p>
         <p className="weather">{weatherCondition}</p>
         <p className="uv-index">UV Index: {uvInfo.uv}</p>
